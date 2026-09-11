@@ -48,7 +48,34 @@ O desenvolvimento será dividido em seis Sprints:
 
 ## Como Executar
 
-As instruções de instalação e execução serão detalhadas ao longo do desenvolvimento do projeto.
+1. Clone o repositório.
+2. Crie e ative o ambiente virtual.
+3. Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Faça o download do dataset disponibilizado.
+5. Coloque as imagens na pasta `data/raw/`, mantendo as subpastas originais:
+
+```text
+data/
+└── raw/
+    ├── ok_front/
+    └── def_front/
+```
+
+6. Execute o pipeline:
+
+```bash
+py main.py
+```
+
+7. A pasta `processed_images/` será criada automaticamente pelo pipeline para armazenar as imagens processadas.
+
+> O dataset não é enviado para o GitHub, pois a pasta `data/` está incluída no `.gitignore`.
+
 
 ## Status
 
