@@ -85,6 +85,7 @@ py main.py
 
 ## Pipeline Atual
 
+
 Até o momento, o pipeline realiza:
 
 ```text
@@ -93,7 +94,11 @@ Carregamento das imagens
 Conversão para Grayscale
         ↓
 Gaussian Blur
-```
+        ↓
+Thresholding de Otsu
+        ↓
+Detecção de bordas com Canny
+
 
 O processamento é realizado em lote, permitindo processar automaticamente as imagens encontradas no diretório de entrada.
 
@@ -103,9 +108,10 @@ O processamento é realizado em lote, permitindo processar automaticamente as im
 
 ### Sprints concluídos
 
-* ✅ **Sprint 1:** Configuração e versionamento
-* ✅ **Sprint 2:** Estrutura e leitura das imagens
-* ✅ **Sprint 3:** Grayscale e redução de ruído com Gaussian Blur
+- ✅ **Sprint 1:** Configuração e versionamento
+- ✅ **Sprint 2:** Estrutura e leitura das imagens
+- ✅ **Sprint 3:** Grayscale e redução de ruído com Gaussian Blur
+- ✅ **Sprint 4:** Thresholding e detecção de bordas com Canny
 
 ### Próximas etapas
 
