@@ -42,6 +42,7 @@ class ImageProcessor:
 
         return gray_image
 
+
     def blur(self, image):
         """Aplica Gaussian Blur para reduzir ruídos da imagem."""
 
@@ -49,4 +50,32 @@ class ImageProcessor:
         blurred_image = cv2.GaussianBlur(image, (5, 5), 0)
 
         return blurred_image
+
+
+    def threshold(self, image):
+        """Aplica thresholding de Otsu para separar objeto e fundo."""
+
+        # Converte a imagem em uma representação binária.
+        # O Otsu calcula automaticamente o melhor valor de limiar.
+        _, threshold_image = cv2.threshold(
+            image,
+            0,
+            255,
+            cv2.THRESH_BINARY + cv2.THRESH_OTSU
+        )
+
+        return threshold_image
+
+
+    def canny(self, image):
+        """Detecta bordas da imagem utilizando o algoritmo de Canny."""
+
+        # Detecta as bordas presentes na imagem.
+        edge_image = cv2.Canny(
+            image,
+            50,
+            150
+        )
+
+        return edge_image
 
