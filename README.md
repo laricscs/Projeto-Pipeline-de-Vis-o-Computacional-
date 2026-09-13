@@ -85,7 +85,6 @@ py main.py
 
 ## Pipeline Atual
 
-
 Até o momento, o pipeline realiza:
 
 ```text
@@ -98,9 +97,17 @@ Gaussian Blur
 Thresholding de Otsu
         ↓
 Detecção de bordas com Canny
-
+```
 
 O processamento é realizado em lote, permitindo processar automaticamente as imagens encontradas no diretório de entrada.
+
+### Thresholding
+
+O método de thresholding utiliza **Otsu**, que calcula automaticamente um valor de limiar para separar regiões da imagem.
+
+### Detecção de bordas
+
+A detecção de bordas utiliza o algoritmo **Canny**, aplicado após a redução de ruído, para destacar contornos e características estruturais presentes nas imagens.
 
 ## Status
 
@@ -108,13 +115,12 @@ O processamento é realizado em lote, permitindo processar automaticamente as im
 
 ### Sprints concluídos
 
-- ✅ **Sprint 1:** Configuração e versionamento
-- ✅ **Sprint 2:** Estrutura e leitura das imagens
-- ✅ **Sprint 3:** Grayscale e redução de ruído com Gaussian Blur
-- ✅ **Sprint 4:** Thresholding e detecção de bordas com Canny
+* ✅ **Sprint 1:** Configuração e versionamento
+* ✅ **Sprint 2:** Estrutura e leitura das imagens
+* ✅ **Sprint 3:** Grayscale e redução de ruído com Gaussian Blur
+* ✅ **Sprint 4:** Thresholding e detecção de bordas com Canny
 
 ### Próximas etapas
 
-* ⏳ **Sprint 4:** Thresholding e detecção de bordas
 * ⏳ **Sprint 5:** Operações morfológicas e Resize
 * ⏳ **Sprint 6:** Salvamento dos resultados, documentação e apresentação
