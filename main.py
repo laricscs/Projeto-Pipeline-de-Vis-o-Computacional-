@@ -1,4 +1,5 @@
 from src.image_processor import ImageProcessor
+import cv2
 
 
 def main():
@@ -12,6 +13,30 @@ def main():
 
     # Carrega todas as imagens encontradas na memória.
     images = processor.load_images(image_paths)
+
+    # Conta quantas imagens foram processadas.
+    processed_count = 0
+
+    for image_path, image in images:
+
+        # Converte a imagem para escala de cinza.
+        gray_image = processor.grayscale(image)
+
+        # Aplica o Gaussian Blur para reduzir ruídos.
+        blurred_image = processor.blur(gray_image)
+
+        processed_count += 1
+
+    print(f"Imagens processadas: {processed_count}")
+
+    
+
+    print(f"Imagem original: {image.shape}")
+    print(f"Imagem grayscale: {gray_image.shape}")
+
+
+    
+
 
     print(f"Imagens encontradas: {len(image_paths)}")
     print(f"Imagens carregadas: {len(images)}")

@@ -24,16 +24,23 @@ O projeto **não tem como objetivo classificar as peças entre com defeito e sem
 Pipeline_Visao_Computacional/
 │
 ├── data/
-├── processed_images/
-├── raw_images/
+│   └── raw/
+│       ├── ok_front/
+│       └── def_front/
+│
 ├── src/
+│   ├── __init__.py
+│   └── image_processor.py
+│
 ├── .gitignore
 ├── main.py
 ├── README.md
 └── requirements.txt
 ```
 
-> A pasta `data/` contém as imagens do dataset e não será enviada ao GitHub, conforme orientação da atividade.
+> A pasta `data/` contém as imagens do dataset e não será enviada ao GitHub, pois está incluída no `.gitignore`.
+
+> A pasta `processed_images/` será criada automaticamente pelo pipeline na etapa de salvamento dos resultados.
 
 ## Etapas do Projeto
 
@@ -56,7 +63,7 @@ O desenvolvimento será dividido em seis Sprints:
 pip install -r requirements.txt
 ```
 
-4. Faça o download do dataset disponibilizado.
+4. Faça o download do dataset disponibilizado na atividade.
 5. Coloque as imagens na pasta `data/raw/`, mantendo as subpastas originais:
 
 ```text
@@ -74,9 +81,34 @@ py main.py
 
 7. A pasta `processed_images/` será criada automaticamente pelo pipeline para armazenar as imagens processadas.
 
-> O dataset não é enviado para o GitHub, pois a pasta `data/` está incluída no `.gitignore`.
+> O dataset não é enviado ao GitHub, pois a pasta `data/` está incluída no `.gitignore`.
 
+## Pipeline Atual
+
+Até o momento, o pipeline realiza:
+
+```text
+Carregamento das imagens
+        ↓
+Conversão para Grayscale
+        ↓
+Gaussian Blur
+```
+
+O processamento é realizado em lote, permitindo processar automaticamente as imagens encontradas no diretório de entrada.
 
 ## Status
 
 🚧 Projeto em desenvolvimento.
+
+### Sprints concluídos
+
+* ✅ **Sprint 1:** Configuração e versionamento
+* ✅ **Sprint 2:** Estrutura e leitura das imagens
+* ✅ **Sprint 3:** Grayscale e redução de ruído com Gaussian Blur
+
+### Próximas etapas
+
+* ⏳ **Sprint 4:** Thresholding e detecção de bordas
+* ⏳ **Sprint 5:** Operações morfológicas e Resize
+* ⏳ **Sprint 6:** Salvamento dos resultados, documentação e apresentação

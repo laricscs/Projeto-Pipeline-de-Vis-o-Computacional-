@@ -33,3 +33,20 @@ class ImageProcessor:
                 images.append((image_path, image))
 
         return images
+
+    def grayscale(self, image):
+        """Converte uma imagem BGR para escala de cinza."""
+
+        # Converte a imagem colorida para tons de cinza.
+        gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+        return gray_image
+
+    def blur(self, image):
+        """Aplica Gaussian Blur para reduzir ruídos da imagem."""
+
+        # Aplica um desfoque gaussiano para suavizar pequenas variações.
+        blurred_image = cv2.GaussianBlur(image, (5, 5), 0)
+
+        return blurred_image
+
