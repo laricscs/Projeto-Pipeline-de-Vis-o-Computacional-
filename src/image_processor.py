@@ -66,6 +66,31 @@ class ImageProcessor:
 
         return threshold_image
 
+    def morphology(self, image):
+        """Aplica operações morfológicas para refinar a máscara."""
+
+        # Cria um kernel 3x3 para realizar as operações morfológicas.
+        kernel = cv2.getStructuringElement(
+            cv2.MORPH_RECT,
+            (3, 3)
+        )
+
+        # Dilata as regiões brancas, reforçando a estrutura da peça.
+        dilated_image = cv2.dilate(
+            image,
+            kernel,
+            iterations=1
+        )
+
+        # Aplica erosão para reduzir pequenos excessos e ruídos.
+        morphed_image = cv2.erode(
+            dilated_image,
+            kernel,
+            iterations=1
+        )
+
+        return morphed_image
+
 
     def canny(self, image):
         """Detecta bordas da imagem utilizando o algoritmo de Canny."""
@@ -78,4 +103,16 @@ class ImageProcessor:
         )
 
         return edge_image
+
+
+    def resize(self, image):
+        """Redimensiona a imagem para um tamanho padronizado."""
+
+        # Define o tamanho padrão das imagens.
+        resized_image = cv2.resize(
+            image,
+            (256, 256)
+        )
+
+        return resized_image
 

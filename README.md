@@ -96,7 +96,11 @@ Gaussian Blur
         ↓
 Thresholding de Otsu
         ↓
+Operações morfológicas
+        ↓
 Detecção de bordas com Canny
+        ↓
+Resize para 256x256
 ```
 
 O processamento é realizado em lote, permitindo processar automaticamente as imagens encontradas no diretório de entrada.
@@ -119,8 +123,7 @@ A detecção de bordas utiliza o algoritmo **Canny**, aplicado após a redução
 * ✅ **Sprint 2:** Estrutura e leitura das imagens
 * ✅ **Sprint 3:** Grayscale e redução de ruído com Gaussian Blur
 * ✅ **Sprint 4:** Thresholding e detecção de bordas com Canny
+* ✅ **Sprint 5:** Operações morfológicas e Resize para 256x256
 
 ### Próximas etapas
-
-* ⏳ **Sprint 5:** Operações morfológicas e Resize
 * ⏳ **Sprint 6:** Salvamento dos resultados, documentação e apresentação

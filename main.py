@@ -33,8 +33,15 @@ def main():
         # Cria a máscara binária da imagem.
         threshold_image = processor.threshold(blurred_image)
 
+        # Refina a máscara utilizando operações morfológicas.
+        morphed_image = processor.morphology(threshold_image)
+
         # Detecta as bordas da peça.
-        edge_image = processor.canny(blurred_image)
+        edge_image = processor.canny(morphed_image)
+
+        # Padroniza o tamanho da imagem para 256x256 pixels.
+        resized_image = processor.resize(edge_image)
+
 
         # Incrementa o contador após concluir o processamento.
         processed_count += 1
