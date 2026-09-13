@@ -42,14 +42,21 @@ def main():
         # Padroniza o tamanho da imagem para 256x256 pixels.
         resized_image = processor.resize(edge_image)
 
+        # Define o caminho onde a imagem processada será salva.
+        output_path = image_path.replace(
+        "data/raw",
+        "processed_images")
+
+        # Salva a imagem processada no diretório de saída.
+        processor.save_image(
+            resized_image,
+            output_path)
+
 
         # Incrementa o contador após concluir o processamento.
         processed_count += 1
 
-
-
     print(f"Imagens processadas: {processed_count}")
-
 
 
 if __name__ == "__main__":

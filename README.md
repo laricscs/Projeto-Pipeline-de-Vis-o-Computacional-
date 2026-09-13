@@ -40,18 +40,18 @@ Pipeline_Visao_Computacional/
 
 > A pasta `data/` contém as imagens do dataset e não será enviada ao GitHub, pois está incluída no `.gitignore`.
 
-> A pasta `processed_images/` será criada automaticamente pelo pipeline na etapa de salvamento dos resultados.
+> A pasta `processed_images/` é criada automaticamente pelo pipeline para armazenar as imagens processadas e também está incluída no `.gitignore`.
 
 ## Etapas do Projeto
 
-O desenvolvimento será dividido em seis Sprints:
+O desenvolvimento foi dividido em seis Sprints:
 
 * **Sprint 1:** Configuração e versionamento
 * **Sprint 2:** Estrutura e leitura das imagens
 * **Sprint 3:** Pré-processamento básico
 * **Sprint 4:** Segmentação e destaque de características
 * **Sprint 5:** Refinamento morfológico e padronização
-* **Sprint 6:** Salvamento, documentação e apresentação
+* **Sprint 6:** Salvamento dos resultados, documentação e apresentação
 
 ## Como Executar
 
@@ -83,9 +83,9 @@ py main.py
 
 > O dataset não é enviado ao GitHub, pois a pasta `data/` está incluída no `.gitignore`.
 
-## Pipeline Atual
+## Pipeline
 
-Até o momento, o pipeline realiza:
+O pipeline realiza as seguintes etapas:
 
 ```text
 Carregamento das imagens
@@ -101,21 +101,35 @@ Operações morfológicas
 Detecção de bordas com Canny
         ↓
 Resize para 256x256
+        ↓
+Salvamento das imagens processadas
 ```
 
-O processamento é realizado em lote, permitindo processar automaticamente as imagens encontradas no diretório de entrada.
+O processamento é realizado em lote, permitindo processar automaticamente todas as imagens encontradas no diretório de entrada.
 
 ### Thresholding
 
 O método de thresholding utiliza **Otsu**, que calcula automaticamente um valor de limiar para separar regiões da imagem.
 
+### Operações morfológicas
+
+São utilizadas operações de dilatação e erosão para refinar a máscara binária e reduzir pequenos ruídos antes da detecção de bordas.
+
 ### Detecção de bordas
 
-A detecção de bordas utiliza o algoritmo **Canny**, aplicado após a redução de ruído, para destacar contornos e características estruturais presentes nas imagens.
+A detecção de bordas utiliza o algoritmo **Canny**, aplicado após a redução de ruído e o refinamento da máscara, para destacar contornos e características estruturais presentes nas imagens.
+
+### Padronização
+
+As imagens processadas são redimensionadas para **256x256 pixels**, garantindo um tamanho padronizado para uma futura etapa de Machine Learning.
+
+### Salvamento
+
+As imagens processadas são salvas automaticamente na pasta `processed_images/`, mantendo a organização das categorias `ok_front` e `def_front`.
 
 ## Status
 
-🚧 Projeto em desenvolvimento.
+✅ **Projeto concluído.**
 
 ### Sprints concluídos
 
@@ -124,6 +138,4 @@ A detecção de bordas utiliza o algoritmo **Canny**, aplicado após a redução
 * ✅ **Sprint 3:** Grayscale e redução de ruído com Gaussian Blur
 * ✅ **Sprint 4:** Thresholding e detecção de bordas com Canny
 * ✅ **Sprint 5:** Operações morfológicas e Resize para 256x256
-
-### Próximas etapas
-* ⏳ **Sprint 6:** Salvamento dos resultados, documentação e apresentação
+* ✅ **Sprint 6:** Salvamento dos resultados e documentação

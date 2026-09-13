@@ -116,3 +116,16 @@ class ImageProcessor:
 
         return resized_image
 
+
+    def save_image(self, image, output_path):
+        """Cria a pasta de saída e salva a imagem processada."""
+
+        # Obtém a pasta onde a imagem será salva.
+        output_dir = os.path.dirname(output_path)
+
+        # Cria a pasta caso ela ainda não exista.
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Salva a imagem processada no caminho informado.
+        cv2.imwrite(output_path, image)
+
